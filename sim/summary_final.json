@@ -1,0 +1,68 @@
+{
+  "2": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.8136363636363636,
+    "cum_norm_acc_std": 0.3223357989883504,
+    "ema_acc_mean": 0.7131818181818181,
+    "ema_acc_std": 0.2888480890522346,
+    "cum_fixed_ttr_mean": 33.0,
+    "cum_norm_ttr_mean": 4.5,
+    "ema_ttr_mean": 5.145
+  },
+  "4": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.5609677419354839,
+    "cum_norm_acc_std": 0.3942324831624571,
+    "ema_acc_mean": 0.4741935483870968,
+    "ema_acc_std": 0.2928740926253352,
+    "cum_fixed_ttr_mean": 31.0,
+    "cum_norm_ttr_mean": 11.52,
+    "ema_ttr_mean": 13.99
+  },
+  "6": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.2818965517241379,
+    "cum_norm_acc_std": 0.32610258410914733,
+    "ema_acc_mean": 0.3239655172413793,
+    "ema_acc_std": 0.27652716160591967,
+    "cum_fixed_ttr_mean": 29.0,
+    "cum_norm_ttr_mean": 19.905,
+    "ema_ttr_mean": 17.795
+  },
+  "8": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.10166666666666666,
+    "cum_norm_acc_std": 0.18462870091523173,
+    "ema_acc_mean": 0.22129629629629627,
+    "ema_acc_std": 0.23434341922578225,
+    "cum_fixed_ttr_mean": 27.0,
+    "cum_norm_ttr_mean": 23.95,
+    "ema_ttr_mean": 19.675
+  },
+  "12": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.003478260869565217,
+    "cum_norm_acc_std": 0.022742081444560035,
+    "ema_acc_mean": 0.1076086956521739,
+    "ema_acc_std": 0.15597352666652745,
+    "cum_fixed_ttr_mean": 23.0,
+    "cum_norm_ttr_mean": 22.92,
+    "ema_ttr_mean": 19.88
+  },
+  "16": {
+    "cum_fixed_acc_mean": 0.0,
+    "cum_fixed_acc_std": 0.0,
+    "cum_norm_acc_mean": 0.0,
+    "cum_norm_acc_std": 0.0,
+    "ema_acc_mean": 0.026842105263157893,
+    "ema_acc_std": 0.06739925281320552,
+    "cum_fixed_ttr_mean": 19.0,
+    "cum_norm_ttr_mean": 19.0,
+    "ema_ttr_mean": 18.355
+  }
+}
