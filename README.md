@@ -16,10 +16,6 @@ being compared in each experiment.
 
 ## Repository structure
 
-- `paper/` — LaTeX source (`main.tex`, `references.bib`) and figures for
-  the paper. Requires the `spie` document class and `IEEEtran.bst`
-  bibliography style (standard in most TeX distributions / Overleaf;
-  not included here).
 - `sim/` — Python simulation code. See `sim/README.md` for module-level
   documentation.
 
