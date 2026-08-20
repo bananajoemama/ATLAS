@@ -34,14 +34,6 @@ separate runs and machines given the pinned dependency versions.
 
 ## Known limitations
 
-- The multi-target crossing scenario (Section 5.5) reproduces the
-  qualitative pattern of the original JIPDA paper's Table 1 (outcome
-  (a) as the modal result) but at a lower absolute rate (42.0% vs. the
-  original paper's 96.5% among confirmed pairs). This is attributed to
-  using a fixed rather than age-dependent track confirmation threshold
-  and simplified track initialization; see the discussion at the end of
-  Section 5.5 in the paper for detail. Closing this gap is the most
-  valuable next step for anyone extending this work.
 - τ_novel, α, and W_miss are calibrated to the specific clutter density,
   sensor noise, and class separation of the scenario simulated here —
   they are not universal constants and should be recalibrated (via the
