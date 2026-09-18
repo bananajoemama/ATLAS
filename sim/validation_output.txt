@@ -1,0 +1,82 @@
+EMA classifier:        AUC=0.826  best_threshold=-2.753  (TPR=0.740, FPR=0.013)
+Cumulative (norm) clf: AUC=0.838  best_threshold=-3.115  (TPR=0.793, FPR=0.013)
+======================================================================
+tau_novel (ATLAS, calibrated) = -2.7533  (AUC=0.826)
+tau_novel (Cum. norm., calibrated) = -3.1149  (AUC=0.838)
+(should match the paper: tau_ema=-2.75, AUC=0.826; tau_cum=-3.12, AUC=0.838)
+======================================================================
+STEP 1: measuring mu_det empirically
+======================================================================
+mu_det = -1.4774  (std=0.7094, n=21423 detected scans)
+
+======================================================================
+STEP 2: measuring S_0, S_L at occlusion end, vs. closed-form Eq.(5)
+======================================================================
+L= 2  S0=-1.834  S_L (sim)= -3.005  S_L (closed-form)= -3.005  diff=-0.000
+L= 4  S0=-1.877  S_L (sim)= -3.983  S_L (closed-form)= -3.983  diff=-0.000
+L= 6  S0=-1.822  S_L (sim)= -4.717  S_L (closed-form)= -4.717  diff=-0.000
+L= 8  S0=-1.861  S_L (sim)= -5.357  S_L (closed-form)= -5.357  diff=+0.000
+L=12  S0=-1.867  S_L (sim)= -6.268  S_L (closed-form)= -6.268  diff=-0.000
+L=16  S0=-1.891  S_L (sim)= -6.868  S_L (closed-form)= -6.868  diff=-0.000
+
+======================================================================
+STEP 3: predicted n*(L) [Eq.(7)] vs. measured mean time-to-recover
+======================================================================
+(running sweep_occlusion_lengths for measured ttr; this reproduces Table III)
+occ_len= 2  cum_fixed_acc=0.000  cum_norm_acc=0.839  ema_acc=0.713  |  ttr(fixed/norm/ema)=33.0/4.0/5.1
+occ_len= 4  cum_fixed_acc=0.000  cum_norm_acc=0.610  ema_acc=0.474  |  ttr(fixed/norm/ema)=31.0/9.8/14.0
+occ_len= 6  cum_fixed_acc=0.000  cum_norm_acc=0.335  ema_acc=0.324  |  ttr(fixed/norm/ema)=29.0/18.1/17.8
+occ_len= 8  cum_fixed_acc=0.000  cum_norm_acc=0.144  ema_acc=0.221  |  ttr(fixed/norm/ema)=27.0/22.6/19.7
+occ_len=12  cum_fixed_acc=0.000  cum_norm_acc=0.008  ema_acc=0.108  |  ttr(fixed/norm/ema)=23.0/22.8/19.9
+occ_len=16  cum_fixed_acc=0.000  cum_norm_acc=0.000  ema_acc=0.027  |  ttr(fixed/norm/ema)=19.0/19.0/18.4
+
+L= 2  n*(L) predicted=   2  measured ttr=  5.14  diff=-3.14
+L= 4  n*(L) predicted=   7  measured ttr= 13.99  diff=-6.99
+L= 6  n*(L) predicted=   9  measured ttr= 17.80  diff=-8.80
+L= 8  n*(L) predicted=  11  measured ttr= 19.68  diff=-8.68
+L=12  n*(L) predicted=  13  measured ttr= 19.88  diff=-6.88
+L=16  n*(L) predicted=  14  measured ttr= 18.36  diff=-4.36
+
+Predicted asymptotic ceiling n*_inf [Eq.(8), naive mu_det] = 16.0
+
+======================================================================
+STEP 4: mixture-corrected mu_eff and refined n*(L)
+======================================================================
+P(effective detection per post-occlusion scan) = 0.8495 (std across trials=0.1700)
+mu_eff = p*mu_det + (1-p)*W_miss = -2.4589
+
+L= 2  n*(L) [mu_eff]=   6  measured ttr=  5.14  diff=+0.86
+L= 4  n*(L) [mu_eff]=  16  measured ttr= 13.99  diff=+2.01
+L= 6  n*(L) [mu_eff]=  20  measured ttr= 17.80  diff=+2.20
+L= 8  n*(L) [mu_eff]=  22  measured ttr= 19.68  diff=+2.32
+L=12  n*(L) [mu_eff]=  25  measured ttr= 19.88  diff=+5.12
+L=16  n*(L) [mu_eff]=  26  measured ttr= 18.36  diff=+7.64
+
+Predicted asymptotic ceiling n*_inf [mu_eff] = 28.0
+(measured ttr at L=16, the longest tested occlusion: 18.36)
+
+======================================================================
+STEP 5: right-censoring check (scalar channel)
+======================================================================
+The paper's Section IV-C attributes the residual gap between the
+mu_eff-corrected prediction and the measured mean ttr, from L=8
+onward, to right-censoring at the scan budget (NOT to trials
+crossing early), i.e. a growing fraction of trials never recover
+a correct classification within the tested window at all:
+L= 8  mean=19.68  median=19.0  std=7.11  min=8  remaining_budget_cap=27  frac_never_recovered=0.43
+L=12  mean=19.88  median=23.0  std=4.17  min=10  remaining_budget_cap=23  frac_never_recovered=0.56
+L=16  mean=18.36  median=19.0  std=1.53  min=13  remaining_budget_cap=19  frac_never_recovered=0.82
+
+(paper cites 43% at L=8, 56% at L=12, 82% at L=16 -- should match above)
+
+======================================================================
+STEP 6: right-censoring check (d=3 multivariate, Section V-F)
+======================================================================
+Confirms the same pattern holds, at a lower rate, once the
+multivariate script's own tau_novel bug (see recover_multivariate_tau.py)
+is fixed and the correct calibrated threshold is used.
+L= 8  mean=9.99  remaining_budget_cap=27  frac_never_recovered=0.32
+L=12  mean=13.59  remaining_budget_cap=23  frac_never_recovered=0.51
+L=16  mean=13.75  remaining_budget_cap=19  frac_never_recovered=0.59
+
+(paper cites 32% at L=8, 51% at L=12, 59% at L=16 for the multivariate case)

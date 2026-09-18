@@ -1,0 +1,56 @@
+{
+  "2": {
+    "mean_realized_len": 2.05,
+    "cum_norm_acc_mean": 0.802269998262494,
+    "cum_norm_acc_std": 0.34112986632526743,
+    "ema_acc_mean": 0.7420330281224616,
+    "ema_acc_std": 0.31094409686501234,
+    "cum_norm_ttr_mean": 6.54,
+    "ema_ttr_mean": 6.78
+  },
+  "4": {
+    "mean_realized_len": 4.385,
+    "cum_norm_acc_mean": 0.5900140705603895,
+    "cum_norm_acc_std": 0.44217029183615303,
+    "ema_acc_mean": 0.5664499589056883,
+    "ema_acc_std": 0.3807761577909694,
+    "cum_norm_ttr_mean": 14.655,
+    "ema_ttr_mean": 13.92
+  },
+  "6": {
+    "mean_realized_len": 5.46,
+    "cum_norm_acc_mean": 0.5356089026125557,
+    "cum_norm_acc_std": 0.43260353712968086,
+    "ema_acc_mean": 0.5343037013848181,
+    "ema_acc_std": 0.37864378555044087,
+    "cum_norm_ttr_mean": 15.395,
+    "ema_ttr_mean": 14.6
+  },
+  "8": {
+    "mean_realized_len": 7.97,
+    "cum_norm_acc_mean": 0.44534175152409416,
+    "cum_norm_acc_std": 0.44958756182707393,
+    "ema_acc_mean": 0.4499006596779715,
+    "ema_acc_std": 0.3788814788150073,
+    "cum_norm_ttr_mean": 17.42,
+    "ema_ttr_mean": 16.035
+  },
+  "12": {
+    "mean_realized_len": 11.355,
+    "cum_norm_acc_mean": 0.2857736613329387,
+    "cum_norm_acc_std": 0.41153200225757885,
+    "ema_acc_mean": 0.32501216705389907,
+    "ema_acc_std": 0.3640075959442823,
+    "cum_norm_ttr_mean": 20.84,
+    "ema_ttr_mean": 19.08
+  },
+  "16": {
+    "mean_realized_len": 14.73,
+    "cum_norm_acc_mean": 0.24160372929111773,
+    "cum_norm_acc_std": 0.3742117350272331,
+    "ema_acc_mean": 0.3182470618390849,
+    "ema_acc_std": 0.3365251013630559,
+    "cum_norm_ttr_mean": 20.56,
+    "ema_ttr_mean": 17.005
+  }
+}
